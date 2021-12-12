@@ -4,6 +4,7 @@ var estado = 0;
 var c = document.getElementById ("colorcito");
 var t = document.getElementById ("tamañoLinea");
 var boton = document.getElementById ("check");
+var borrador = document.getElementById ("eraser");
 var grosor = 2;
 
 console.log (c.value);
@@ -16,6 +17,11 @@ function actualizarColor (event) {
   colorLinea = event.target.value
 }
 
+function borrar (event) {
+  console.log('SE ACTUALIZO EL COLOR', event.target.value);
+  colorLinea = "#FFFFFF"
+}
+
 function actualizarGrosor (evento) {
   grosor = parseInt(t.value);
   console.log (evento)
@@ -24,7 +30,8 @@ function actualizarGrosor (evento) {
 document.addEventListener("mousedown",presionarMouse);  
 document.addEventListener("mouseup",soltarMouse);      
 document.addEventListener("mousemove",dibujarMouse);  
-boton.addEventListener("click", actualizarGrosor)         
+boton.addEventListener("click", actualizarGrosor);
+borrador.addEventListener("click", borrar);         
 c.addEventListener('input', actualizarColor)
 
 dibujarLineas ("black",2,1,1,1,299);
